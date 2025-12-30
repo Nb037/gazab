@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy New Year Divya</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Playfair Display', serif;
+        background: radial-gradient(circle at top, #0b1220, #02010d);
+        color: white;
+        overflow-x: hidden;
+        min-height: 100vh;
+    }
+
+    /* LOCK SCREEN */
+    #lock {
+        position: fixed;
+        inset: 0;
+        background: #02010d;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+    }
+
+    .lock-box {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 40px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+    }
+
+    #lock input {
+        padding: 15px;
+        width: 250px;
+        border-radius: 12px;
+        border: 2px solid #ff8fa3;
+        background: rgba(0,0,0,0.3);
+        color: #ff8fa3; /* Pink text when typing */
+        font-size: 1.2rem;
+        text-align: center;
+        outline: none;
+        font-weight: bold;
+    }
+
+    #lock button {
+        margin-top: 25px;
+        padding: 12px 35px;
+        border-radius: 30px;
+        border: none;
+        background: #ff8fa3;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    /* MAIN CONTENT */
+    #content {
+        display: none;
+        position: relative;
+        z-index: 10;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 60px;
+        font-size: 3em;
+        color: #ffd27d;
+        position: relative;
+        z-index: 20;
+    }
+
+    .photo {
+        width: 280px;
+        margin: 40px auto;
+        display: block;
+        border-radius: 20px;
+        box-shadow: 0 0 30px rgba(255, 143, 163, 0.3);
+        position: relative;
+        z-index: 20;
+    }
+
+    /* SUN & MOON FIXED */
+    .sun {
+        position: fixed;
+        top: 40px;
+        right: 40px;
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle, #ffd27d, #ff9f43);
+        border-radius: 50%;
+        box-shadow: 0 0 60px rgba(255,200,100,0.6);
+        z-index: 5;
+        animation: pulse 4s infinite ease-in-out;
+    }
+
+    .moon {
+        position: fixed;
+        bottom: 60px;
+        left: 50px;
+        width: 80px;
+        height: 80px;
+        background: radial-gradient(circle, #f4f4f4, #bbb);
+        border-radius: 50%;
+        box-shadow: 0 0 40px rgba(255,255,255,0.4);
+        z-index: 5;
+        animation: pulse 5s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.1); opacity: 1; }
+    }
+
+    /* POEM ANIMATION */
+    .poem {
+        max-width: 800px;
+        margin: 50px auto;
+        text-align: center;
+        font-size: 1.4em;
+        line-height: 2;
+        padding: 0 20px;
+        position: relative;
+        z-index: 20;
+    }
+
+    .poem span {
+        display: block;
+        opacity: 0;
+        transform: translateY(25px);
+        transition: all 1.5s ease;
+        margin-bottom: 10px;
+    }
+
+    .poem span.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .personal-note {
+        margin-top: 50px;
+        color: #ffb3c1;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 30px;
+    }
+
+    .sparkle {
+        position: fixed;
+        background: white;
+        border-radius: 50%;
+        pointer-events: none;
+        animation: float 6s linear forwards;
+        z-index: 15;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(100vh); opacity: 1; }
+        100% { transform: translateY(-10vh); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<div id="lock">
+    <div class="lock-box">
+        <h2 style="color:#ffd27d">Enter Our Secret Code</h2>
+        <input type="text" id="pass" placeholder="Password..." autocomplete="off">
+        <br>
+        <button onclick="unlock()">Unlock 🌙</button>
+    </div>
+</div>
+
+<div id="content">
+    <div class="sun"></div>
+    <div class="moon"></div>
+
+    <h1>Happy New Year 2026</h1>
+
+    <img src="photo1.jpg" class="photo" alt="Us">
+
+    <div class="poem">
+        <span>Hai 4 direction ke 4 log</span>
+        <span>Hai thode hutiye par sare yaar dost</span>
+        <span>Laga tha thode time tak rahenge</span>
+        <span>inhone leliya sara jahaan jo</span>
+        <span>Ek hai lomdika raat hai rachata raas rangela, Dusre hai badmos on Naam Hai Kaizoku Don</span>
+        <span>Tisra hai Infotech walo ka dulara jo kahi na ja para,Chauthi hai rare species, chaiiye jise nigga Dihhs</span>
+
+        <div class="personal-note">
+            <span>Happy New Year, Besto Friendos ✨</span>
+            <span>May this year bring you peace, love, and everything your heart deserves.</span>
+            <span>Also relationship, money, sax-sux for all of us.</span>
+        </div>
+    </div>
+
+    <audio id="bgm" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<script>
+function unlock() {
+    const input = document.getElementById("pass").value;
+    
+    // PASSWORD: GAZAB
+    if (input === "GAZAB") {
+        document.getElementById("lock").style.display = "none";
+        document.getElementById("content").style.display = "block";
+        
+        startMusic();
+        startSparkles();
+        
+        // Trigger Poem Animation
+        const lines = document.querySelectorAll(".poem span");
+        lines.forEach((line, i) => {
+            setTimeout(() => {
+                line.classList.add("active");
+            }, i * 1500); 
+        });
+        
+    } else {
+        alert("Wrong code! 💔");
+    }
+}
+
+function startMusic() {
+    const music = document.getElementById("bgm");
+    music.volume = 0.5;
+    music.play().catch(e => console.log("Music interaction needed"));
+}
+
+function startSparkles() {
+    setInterval(() => {
+        const s = document.createElement("div");
+        s.className = "sparkle";
+        const size = Math.random() * 5 + 2 + "px";
+        s.style.width = size;
+        s.style.height = size;
+        s.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), 6000);
+    }, 500);
+}
+</script>
+
+</body>
+</html>
